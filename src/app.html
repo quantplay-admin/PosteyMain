@@ -2,10 +2,80 @@
 <html lang="%paraglide.lang%">
 	<head>
 		<meta charset="utf-8" />
+		<title>Postey.ai - AI-Powered Social Media Management</title>
+
+		<!-- Primary Meta Tags -->
+		<meta name="title" content="Postey.ai - AI-Powered Social Media Management" />
+		<meta
+			name="description"
+			content="Create, schedule, and manage your social media content across Twitter, LinkedIn, and more with AI-powered tools. Collaborate with your team in real-time."
+		/>
+		<meta
+			name="keywords"
+			content="social media management, AI content creation, Twitter scheduling, LinkedIn posts, social media automation, content collaboration, social media tool"
+		/>
+		<meta name="author" content="Postey.ai" />
+		<meta name="robots" content="index, follow" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://postey.ai/" />
+		<meta property="og:title" content="Postey.ai - AI-Powered Social Media Management" />
+		<meta
+			property="og:description"
+			content="Create, schedule, and manage your social media content across Twitter, LinkedIn, and more with AI-powered tools. Collaborate with your team in real-time."
+		/>
+		<meta property="og:image" content="https://cdn.postey.ai/public/og-image.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:site_name" content="Postey.ai" />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://postey.ai/" />
+		<meta name="twitter:title" content="Postey.ai - AI-Powered Social Media Management" />
+		<meta
+			name="twitter:description"
+			content="Create, schedule, and manage your social media content across Twitter, LinkedIn, and more with AI-powered tools. Collaborate with your team in real-time."
+		/>
+		<meta name="twitter:image" content="https://cdn.postey.ai/public/twitter-image.jpg" />
+		<meta name="twitter:creator" content="@posteyai" />
+		<meta name="twitter:site" content="@posteyai" />
+
+		<!-- Additional Meta Tags -->
+		<meta name="theme-color" content="#3B82F6" />
+		<meta name="msapplication-TileColor" content="#3B82F6" />
+		<meta name="msapplication-config" content="/browserconfig.xml" />
+		<meta name="application-name" content="Postey.ai" />
+		<meta name="apple-mobile-web-app-title" content="Postey.ai" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="mobile-web-app-capable" content="yes" />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://postey.ai/" />
+
+		<!-- Favicons and Icons -->
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<!-- Preconnect for Performance -->
+		<link rel="preconnect" href="https://srvr.postey.ai" crossorigin />
+		<link rel="preconnect" href="https://pbs.twimg.com" crossorigin />
+		<link rel="preconnect" href="https://cdn.postey.ai" crossorigin />
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+		<!-- Security -->
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
+		<div style="display: flex; min-height: 100dvh; width: 100%">%sveltekit.body%</div>
 	</body>
 </html>
