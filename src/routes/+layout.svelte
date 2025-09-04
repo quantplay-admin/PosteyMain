@@ -1,12 +1,14 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
-	
-	let { children } = $props();
-</script>
+	import '$lib/icons/icons.css';
+	import { onMount } from 'svelte';
+	import { loadPostHog } from '$lib/core/posthog/load.svelte';
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+	let { children } = $props();
+
+	onMount(() => {
+		loadPostHog();
+	});
+</script>
 
 {@render children?.()}
