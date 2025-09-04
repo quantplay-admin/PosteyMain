@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Cards from "./Cards.svelte";
-
+	import Cards from './Cards.svelte';
 
 	interface TPlans {
 		name: string;

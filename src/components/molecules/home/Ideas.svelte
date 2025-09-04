@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import { animateText } from '$lib/actions/gsapActions';
 	import { onMount } from 'svelte';
 	import Cards from './Cards.svelte';

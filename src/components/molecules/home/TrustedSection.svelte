@@ -5,7 +5,7 @@
 
 	<!-- company carousel -->
 	<div class="flex items-center justify-center gap-10 text-xl text-[#D9D9D9]">
-		{#each [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as _}
+		{#each [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as _i}
 			<div class="w-[200px]">Company</div>
 		{/each}
 	</div>

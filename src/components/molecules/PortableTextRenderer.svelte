@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import type { PortableTextBlock } from '$lib/sanity/queries';
 	import { PortableText } from '@portabletext/svelte';
 	import HeadingComponents from './content/portable-text/HeadingComponents.svelte';

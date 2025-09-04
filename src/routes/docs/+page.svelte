@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Icon from "../../components/atoms/Icon.svelte";
-	import BlogFooter from "../../components/molecules/content/blog-elements/BlogFooter.svelte";
-
-	
+	import Icon from '../../components/atoms/Icon.svelte';
+	import BlogFooter from '../../components/molecules/content/blog-elements/BlogFooter.svelte';
 
 	const features: Array<{ icon: string; title: string; description: string }> = [
 		{

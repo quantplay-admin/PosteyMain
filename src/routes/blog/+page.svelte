@@ -2,7 +2,6 @@
 	import BlogFooter from '../../components/molecules/content/blog-elements/BlogFooter.svelte';
 	import BlogHeader from '../../components/molecules/content/blog-elements/BlogHeader.svelte';
 
-
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();

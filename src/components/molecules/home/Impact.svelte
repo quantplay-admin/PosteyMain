@@ -1,6 +1,5 @@
 <script>
-	import Divide from "./Divide.svelte";
-
+	import Divide from './Divide.svelte';
 </script>
 
 <div

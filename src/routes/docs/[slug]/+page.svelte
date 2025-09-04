@@ -4,7 +4,6 @@
 	import InputSearchModal from '../../../components/molecules/content/doc-elements/InputSearchModal.svelte';
 	import PortableTextRenderer from '../../../components/molecules/PortableTextRenderer.svelte';
 
-
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();

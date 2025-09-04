@@ -4,18 +4,26 @@
 	import { fade } from 'svelte/transition';
 	import Icon from '../../components/atoms/Icon.svelte';
 	import Loader from '../../components/atoms/Loader.svelte';
+	import { error } from '@sveltejs/kit';
 
 	let isJoined = $state(false);
+	let isAlreadyJoined = $state(false);
 	let email = $state('');
 	let isJoining = $state(false);
+
+	let isError = $state(false);
 
 	const server_path = 'https://srvr.postey.ai';
 
 	function joinWaitlist() {
 		const value = email.trim();
+
 		const isValidEmail = emailRegex.test(value);
+
 		if (!isValidEmail) return;
+
 		isJoining = true;
+
 		fetch(`${server_path}/v1/waitlist`, {
 			method: 'POST',
 			headers: {
@@ -25,13 +33,19 @@
 				email: value
 			})
 		})
-			.then(() => {
+			.then((res) => {
+				if (res.status === 409) {
+					isAlreadyJoined = true;
+				} else if (!res.ok) {
+					throw error(res.status);
+				}
+
 				isJoined = true;
 				email = '';
 			})
 			.catch((error) => {
 				console.error(error);
-				isJoined = false;
+				isError = true;
 			})
 			.finally(() => (isJoining = false));
 	}
@@ -110,6 +124,18 @@
 					{/if}
 				</button>
 			</div>
+			{#if isError}
+				<p class="-mt-3 text-red-500">Something went wrong</p>
+			{/if}
+		{:else if isAlreadyJoined}
+			<p
+				role="status"
+				aria-live="polite"
+				transition:fade={{ delay: 100, easing: cubicInOut }}
+				class="animated-text text-2xl font-medium text-white"
+			>
+				You're already on the waitlist!
+			</p>
 		{:else}
 			<p
 				role="status"
