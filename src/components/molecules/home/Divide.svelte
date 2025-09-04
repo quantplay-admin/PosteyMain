@@ -14,6 +14,6 @@
 </script>
 
 <div
-	class={`bg-gradient-to-${direction === 'row' ? 'r' : 'b'} from-[#1E1E1E] via-[#bdbdbd] to-[#1E1E1E] ${className}`}
+	class={`bg-gradient-to-${direction === 'row' ? 'r' : 'b'} from-[#1c1c1c] via-[#949393] to-[#1E1E1E] ${className}`}
 	style={`width: ${width ? `${width}px` : '100%'}; height: ${height ? `${height}px` : '100%'};`}
 ></div>

@@ -29,6 +29,8 @@
 	});
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+
 <div class="overflow-hidden rounded-md border border-gray-700 bg-[#111]">
 	<div class="border-b border-gray-700 px-4 py-3 text-sm font-medium text-white">
 		{value.title}

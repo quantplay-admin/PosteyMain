@@ -30,7 +30,8 @@
 	});
 </script>
 
-{#each items as item, idx}
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+{#each items as item, idx (item._id)}
 	<div
 		class={`flex w-full flex-col gap-2 ${openedMenu[idx] ? 'pb-0' : 'border-b border-gray-200 pb-2'}`}
 	>

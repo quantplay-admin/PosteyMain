@@ -21,6 +21,8 @@
 	<meta name="description" content="Read our latest blog posts" />
 </svelte:head>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+
 <div class="w-full bg-white">
 	<BlogHeader />
 	<div class="flex flex-col items-center justify-center gap-2 px-4 text-gray-700">

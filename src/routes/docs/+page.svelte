@@ -55,6 +55,8 @@
 	/>
 </svelte:head>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+
 <div class="w-full text-gray-800">
 	<div class="min-h-screen bg-white">
 		<!-- Header -->

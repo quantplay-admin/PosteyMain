@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import Icon from '../../../atoms/Icon.svelte';
 
 	import ApiLabel from '../portable-text/ApiLabel.svelte';
@@ -73,7 +74,8 @@
 				if (selectedIndex >= 0 && selectedIndex < searchedItems.length) {
 					// Navigate to the selected item
 					const selectedItem = searchedItems[selectedIndex];
-					goto(`/docs/${selectedItem.path}`);
+
+					goto(resolve(`/docs/${selectedItem.path}`));
 					onClose();
 				}
 				break;
@@ -97,6 +99,7 @@
 	}
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
 {#if isOpen}
 	<div
 		bind:this={modalRef}

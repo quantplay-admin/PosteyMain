@@ -16,6 +16,8 @@
 	const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+
 <a
 	href={value.href}
 	{target}

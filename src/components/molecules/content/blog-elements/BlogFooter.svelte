@@ -1,3 +1,4 @@
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
 <footer class="border-t border-gray-200 px-10 py-12">
 	<div class="mx-auto max-w-7xl">
 		<div class="flex flex-col items-center justify-between md:flex-row">

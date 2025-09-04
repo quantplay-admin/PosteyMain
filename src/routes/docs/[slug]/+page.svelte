@@ -35,6 +35,8 @@
 	}
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+
 <div class="flex min-h-screen w-full bg-white">
 	<div
 		class="z-50 h-screen w-[280px] overflow-y-auto scroll-smooth border-r border-gray-200 bg-[#FDFDFD] px-4"
@@ -111,7 +113,7 @@
 				<div class="flex flex-col items-start justify-start gap-4 border-l border-gray-200 pl-2">
 					{#if docPage?.pageOfContent && docPage.pageOfContent.length > 0}
 						<span class="text-lg font-semibold text-gray-600">On this page</span>
-						{#each docPage.pageOfContent as content}
+						{#each docPage.pageOfContent as content (content)}
 							<p class="text-sm text-gray-500 hover:text-blue-600">{content}</p>
 						{/each}
 					{/if}

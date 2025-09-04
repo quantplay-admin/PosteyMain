@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { emailRegex } from '$lib/common/regex';
 	import { cubicInOut } from 'svelte/easing';
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import Icon from '../../components/atoms/Icon.svelte';
 	import Loader from '../../components/atoms/Loader.svelte';
 	import { error } from '@sveltejs/kit';
@@ -52,14 +52,16 @@
 </script>
 
 <svelte:head>
-	<title>Waitlist</title>
+	<title>Join the Waitlist — Get Exclusive Early Access | Postey.ai</title>
 	<meta
 		name="description"
 		content="Join the waitlist for early access to our new features and updates."
 	/>
 </svelte:head>
 
-<div class="relative h-screen w-full overflow-hidden bg-[#000] text-white">
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+
+<div class="relative h-screen w-full overflow-hidden bg-[#000] text-white transition-all">
 	<div
 		class="pointer-events-none absolute -top-14 -left-36 z-10 h-[250px] w-[700px] bg-[#1D4ED8] opacity-25 blur-[120px]"
 	></div>
@@ -91,6 +93,7 @@
 
 	<!-- Hero Section -->
 	<div
+		in:fly={{ y: -20, delay: 500, easing: cubicInOut }}
 		class="z-20 mx-auto -mt-24 flex h-screen max-w-xl flex-col items-center justify-center gap-6 text-center"
 	>
 		<div class="flex flex-col items-center justify-center">
@@ -115,7 +118,7 @@
 					disabled={isJoining}
 					type="button"
 					onclick={() => joinWaitlist()}
-					class="z-30 flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#1D4ED8] text-white transition hover:bg-[#1E40AF]"
+					class="btn z-30 flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#1D4ED8] text-white transition hover:bg-[#1E40AF]"
 				>
 					{#if isJoining}
 						<Loader variant="spinner" class="text-2xl text-white" />

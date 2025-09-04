@@ -20,7 +20,7 @@
 		<thead class="bg-gray-100">
 			{#if rows && rows.length > 0}
 				<tr>
-					{#each rows[0].cells as cell}
+					{#each rows[0].cells as cell (cell)}
 						<th
 							scope="col"
 							class="border-b border-gray-200 px-4 py-2 text-left text-sm font-semibold"

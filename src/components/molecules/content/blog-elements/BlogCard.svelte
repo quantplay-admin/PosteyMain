@@ -9,6 +9,7 @@
 	let { image, title, date, slug }: Props = $props();
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
 <a
 	href={`/blog/${slug}`}
 	data-sveltekit-preload-data="hover"

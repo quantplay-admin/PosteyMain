@@ -1,87 +1,61 @@
 <script lang="ts">
-	import { animateText } from '$lib/actions/gsapActions';
-	import { onMount } from 'svelte';
-	import Cards from './Cards.svelte';
+	import Overlay from '../../atoms/Overlay.svelte';
 	import Divide from './Divide.svelte';
 
-	onMount(() => {
-		['#idea-title', '#idea-desc'].forEach((target) => {
-			animateText(target, {
-				x: 0,
-				y: -100,
-				duration: 1.5
-			});
-		});
-		animateText('.left-box', {
-			x: -100,
-			y: 0,
-			duration: 1.5
-		});
-		animateText('.right-box', {
-			x: 100,
-			y: 0,
-			duration: 1.5
-		});
-		animateText('.child-box', {
-			x: 0,
-			y: -100,
-			duration: 1.5
-		});
-	});
+	interface AiFeatureType {
+		id: string;
+		title: string;
+	}
+	const aiFeatureList: AiFeatureType[] = [
+		{
+			id: 'ai',
+			title: 'Go Viral with AI'
+		},
+		{
+			id: 'grammar',
+			title: 'Fix Grammar with AI'
+		},
+		{
+			id: 'polish',
+			title: 'Polishing Writing with AI'
+		}
+	];
+
+	let activeFeature = $state(aiFeatureList[0].id);
 </script>
 
-<div
-	class="flex flex-col items-center justify-center gap-20 overflow-hidden bg-gradient-to-b from-[#222222] to-[#141414] py-24 text-[#FFFFFF]"
->
+<div class="relative flex flex-col items-center justify-center gap-20 py-24 text-[#FFFFFF]">
+	<Overlay class="-top-20 " width={800} />
 	<div class="flex items-center justify-between px-10">
-		<h1 id="idea-title" class="text-5xl font-medium">Start with ideas that work</h1>
-		<p id="idea-desc" class="max-w-4xl text-gray-400">
+		<h1 class="max-w-sm text-5xl font-medium">Start with ideas that work</h1>
+		<p id="idea-desc" class="max-w-lg text-gray-400">
 			Fuel your next post with insight, not guesswork. Postey helps you spark content ideas that
 			resonate using real-time trends, smart prompts, and tailored templates so you’re always
 			creating with direction.
 		</p>
 	</div>
 
-	<div class="flex w-full items-center justify-between gap-20 px-10">
-		<div class="flex flex-col gap-4">
-			<Cards containerClass="left-box" width={300} height={350} gradientDirection="br"
-				><div></div></Cards
-			>
-			<p class="text-gray-400">Real-time tags to amplify reach across platforms.</p>
+	<div class="mt-10 ml-50 flex w-12/12 items-center justify-evenly gap-20 px-10">
+		<div class="flex flex-col gap-2">
+			{#each aiFeatureList as feature}
+				<div class="flex items-center gap-2">
+					<!-- 3a3a3a -->
+					<div
+						class="h-[22px] w-[3px] rounded {feature.id === activeFeature
+							? 'bg-[#1e4bd7]'
+							: 'bg-[#3A3A3A]'}"
+					></div>
+					<p class={feature.id === activeFeature ? 'font-bold' : 'font-thin text-gray-400'}>
+						{feature.title}
+					</p>
+				</div>
+			{/each}
 		</div>
+
 		<Divide direction="col" />
 
-		<div class="flex flex-col gap-8">
-			<Cards width={700} containerClass="relative right-box" gradientDirection="br">
-				<Cards
-					height={120}
-					width={350}
-					containerClass="absolute top-20 -left-30 child-box"
-					gradientDirection="br"
-					gradient2="#181818"
-				>
-					<div></div>
-				</Cards>
-			</Cards>
-			<p class="text-gray-400">Ready-made formats designed for each social channel.</p>
-		</div>
-	</div>
-
-	<Divide direction="row" />
-
-	<div class="flex w-full items-center justify-between gap-20 px-6">
 		<div>
-			<p class="text-gray-400">
-				Guidance on what kind of content to post based on audience behavior
-			</p>
-		</div>
-		<div class="flex flex-col gap-8">
-			<Cards width={600} height={350} gradientDirection="br" containerClass="right-box"
-				><div></div></Cards
-			>
-			<p class="text-gray-400">
-				Guidance on what kind of content to post based on audience behavior
-			</p>
+			<img src="/Schedule2.png" alt="" class="w-4/12" />
 		</div>
 	</div>
 </div>
