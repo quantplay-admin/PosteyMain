@@ -1,14 +1,15 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface BackdropProps {
+	interface BackdropProps extends HTMLAttributes<HTMLElement> {
 		children: Snippet;
 	}
 
-	let { children }: BackdropProps = $props();
+	let { children, class: className }: BackdropProps = $props();
 </script>
 
-<div class="backdrop">
+<div class={['backdrop', className]}>
 	{@render children()}
 </div>
 

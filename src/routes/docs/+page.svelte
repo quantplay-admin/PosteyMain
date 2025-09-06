@@ -63,7 +63,7 @@
 		<header id="header" class="z-50 flex items-center justify-between bg-gray-50 px-10 py-4">
 			<a href="/home" class="flex items-center gap-3">
 				<img src="/apple-touch-icon.png" alt="Poesty.ai" class="h-8 w-8" />
-				<span class="text-xl font-semibold"> Poesty.ai </span>
+				<span class="text-xl font-semibold"> Postey.ai </span>
 			</a>
 
 			<div class="flex items-center gap-4">

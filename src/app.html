@@ -65,16 +65,21 @@
 		<link rel="manifest" href="/site.webmanifest" />
 
 		<!-- Preconnect for Performance -->
-		<link rel="preconnect" href="https://srvr.postey.ai" crossorigin />
-		<link rel="preconnect" href="https://pbs.twimg.com" crossorigin />
 		<link rel="preconnect" href="https://cdn.postey.ai" crossorigin />
-		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
 
 		<!-- Security -->
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 
 		%sveltekit.head%
 	</head>
+
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: flex; min-height: 100dvh; width: 100%">%sveltekit.body%</div>
 	</body>

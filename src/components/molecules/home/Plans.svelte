@@ -1,11 +1,14 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Icon from '../../atoms/Icon.svelte';
+	import Overlay from '../../atoms/Overlay.svelte';
 	import Cards from './Cards.svelte';
 
 	interface TFeatures {
 		isAvailable: boolean;
 		title: string;
 	}
+
 	interface TPlans {
 		name: string;
 		price: string;
@@ -16,6 +19,7 @@
 		isPopular?: boolean;
 		features: TFeatures[];
 	}
+
 	const plans = $state<TPlans[]>([
 		{
 			name: 'Free',
@@ -24,8 +28,9 @@
 			features: [
 				{ isAvailable: true, title: '1 Account' },
 				{ isAvailable: true, title: '15 Posts/month' },
-				{ isAvailable: false, title: '0 Teams' },
-				{ isAvailable: true, title: '5 Drafts' }
+
+				{ isAvailable: true, title: '5 Drafts' },
+				{ isAvailable: false, title: 'No Teams Included' }
 			]
 		},
 		{
@@ -36,8 +41,9 @@
 			features: [
 				{ isAvailable: true, title: '20 Accounts' },
 				{ isAvailable: true, title: 'Unlimited Posts' },
-				{ isAvailable: false, title: '0 Teams' },
-				{ isAvailable: true, title: 'Unlimited Drafts' }
+
+				{ isAvailable: true, title: 'Unlimited Drafts' },
+				{ isAvailable: false, title: 'No Teams Included' }
 			]
 		},
 		{
@@ -56,7 +62,8 @@
 		{
 			name: 'Agency',
 			price: '$79',
-			yearlyBilling: true,
+			discountedText: 'Discounted, save $240/year',
+			// yearlyBilling: true,
 			tag: 'Annual billing only',
 			features: [
 				{ isAvailable: true, title: '50 Accounts' },
@@ -66,49 +73,61 @@
 			]
 		}
 	]);
+
+	let isChecked = $state(true);
 </script>
 
-<div class="flex flex-col items-center justify-center gap-20 px-10 py-24 text-[#FFFFFF]">
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+<div class="relative flex flex-col items-center justify-center gap-20 px-10 py-24 text-[#FFFFFF]">
+	<Overlay class="top-0" width={700} />
+
 	<div class="space-y-8">
-		<h1 class="max-w-2xl text-center text-5xl font-medium">
+		<h1 class="headline heading max-w-2xl text-center text-3xl font-medium md:text-5xl">
 			Flexible plans for every stage of growth.
 		</h1>
-		<p class="text-2xl text-gray-500">Choose a plan that fits your goals and scale as you grow</p>
+		<p class="desc description text-xl text-gray-500 md:text-2xl">
+			Choose a plan that fits your goals and scale as you grow
+		</p>
 	</div>
-	<div class="flex items-center justify-center gap-1">
-		{#each plans as plan, i}
-			<Cards
-				shadow={true}
-				width={330}
-				height={i === 2 ? 740 : 700}
-				containerClass="w-full relative"
-			>
+	<div class="flex flex-wrap items-center justify-center gap-2">
+		{#each plans as plan, _i}
+			<Cards shadow={true} width={330} height={640} containerClass="w-full relative">
+				<!-- most popular tag -->
 				{#if plan.isPopular}
 					<div
-						class="absolute -top-4 right-10 rounded-3xl bg-blue-500 px-3 py-1 font-medium text-white"
+						class="absolute -top-4 right-26 rounded-3xl bg-blue-500 px-3 py-1 font-medium text-white"
 					>
 						Most Popular
 					</div>
 				{/if}
-				<div class="w-full space-y-6 py-6">
-					<h4 class="text-3xl">{plan.name}</h4>
 
-					<div class="flex flex-col">
-						{#if plan.price === 'Free'}
-							<p class="text-xl font-semibold">$0</p>
-						{:else}
-							<p class="text-xl font-semibold">
-								{plan.price}
-								<span class="text-base font-normal text-gray-400"> per user/month </span>
-							</p>
-						{/if}
-						{#if plan.discountedText}
-							<p class="text-sm text-green-500">{plan.discountedText}</p>
-						{/if}
+				<div class="w-full space-y-6 py-6">
+					<div class="flex h-48 flex-col gap-4">
+						<h4 class="text-3xl">{plan.name}</h4>
+						<div>
+							{#if plan.price === 'Free'}
+								<p class="text-xl font-semibold">$0</p>
+							{:else}
+								<p class="text-xl font-semibold">
+									{plan.price}
+									<span class="text-base font-normal text-gray-400"> per user/month </span>
+								</p>
+							{/if}
+							{#if plan.discountedText}
+								<p class="text-sm text-green-500">{plan.discountedText}</p>
+							{/if}
+						</div>
 						{#if plan.yearlyBilling}
 							<div class="mt-4 flex items-center space-x-2">
 								<label class="relative inline-flex cursor-pointer items-center">
-									<input type="checkbox" class="peer sr-only" checked />
+									<input
+										type="checkbox"
+										class="peer sr-only"
+										checked={isChecked}
+										onchange={() => {
+											isChecked = !isChecked;
+										}}
+									/>
 									<div
 										class="peer bg-primary border-primary-border h-5 w-9 rounded-full peer-checked:bg-blue-500 peer-focus:ring-2 peer-focus:ring-blue-500 after:absolute after:top-[2px] after:left-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-4"
 									></div>
@@ -116,11 +135,11 @@
 								<span class="text-secondary-text text-lg">Yearly Billing</span>
 							</div>
 						{:else if plan.tag}
-							<p class="text-2xl">{plan.tag}</p>
+							<p class="mt-6 text-2xl">{plan.tag}</p>
 						{/if}
 					</div>
 
-					<div class="mt-10 space-y-8">
+					<div class="mt-10 space-y-6">
 						{#each plan.features as feature (feature.title)}
 							<div class="flex items-center gap-4">
 								{#if feature.isAvailable}
@@ -139,18 +158,17 @@
 						{/each}
 					</div>
 
-					<div class="flex w-full items-center justify-center">
-						<button
-							type="button"
-							aria-label="Get started with {plan.name} plan"
-							class="mt-10 w-full cursor-pointer rounded-2xl border border-gray-500 bg-[#333333] px-3 py-2 text-lg font-medium text-white {plan.name ===
-							'Team'
-								? 'border-[#7795E8] bg-blue-600 hover:bg-blue-700'
-								: ''}"
-						>
-							Get Started
-						</button>
-					</div>
+					<button
+						type="button"
+						onclick={() => goto('/waitlist')}
+						aria-label="Get started with {plan.name} plan"
+						class="mt-14 w-full cursor-pointer rounded-2xl border border-gray-500 bg-[#333333] px-3 py-2 text-lg font-medium text-white {plan.name ===
+						'Team'
+							? 'border-[#7795E8] bg-blue-600 hover:bg-blue-700'
+							: ''}"
+					>
+						Get Started
+					</button>
 				</div>
 			</Cards>
 		{/each}

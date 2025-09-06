@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { emailRegex } from '$lib/common/regex';
-	import { cubicInOut } from 'svelte/easing';
-	import { fade, fly } from 'svelte/transition';
 	import Icon from '../../components/atoms/Icon.svelte';
 	import Loader from '../../components/atoms/Loader.svelte';
 	import { error } from '@sveltejs/kit';
+	import { PUBLIC_POSTEY_BACKEND_URL } from '$env/static/public';
 
 	let isJoined = $state(false);
 	let isAlreadyJoined = $state(false);
@@ -13,7 +12,7 @@
 
 	let isError = $state(false);
 
-	const server_path = 'https://srvr.postey.ai';
+	const server_path = PUBLIC_POSTEY_BACKEND_URL;
 
 	function joinWaitlist() {
 		const value = email.trim();
@@ -87,13 +86,12 @@
          opacity-100"
 	></div>
 
-	<div class="absolute right-4 bottom-2 text-sm">
+	<!-- <div class="absolute right-4 bottom-2 text-sm">
 		<a href="/login" class="text-[#989898] hover:underline"> Already a member? </a>
-	</div>
+	</div> -->
 
 	<!-- Hero Section -->
 	<div
-		in:fly={{ y: -20, delay: 500, easing: cubicInOut }}
 		class="z-20 mx-auto -mt-24 flex h-screen max-w-xl flex-col items-center justify-center gap-6 text-center"
 	>
 		<div class="flex flex-col items-center justify-center">
@@ -131,21 +129,11 @@
 				<p class="-mt-3 text-red-500">Something went wrong</p>
 			{/if}
 		{:else if isAlreadyJoined}
-			<p
-				role="status"
-				aria-live="polite"
-				transition:fade={{ delay: 100, easing: cubicInOut }}
-				class="animated-text text-2xl font-medium text-white"
-			>
+			<p role="status" aria-live="polite" class="animated-text text-2xl font-medium text-white">
 				You're already on the waitlist!
 			</p>
 		{:else}
-			<p
-				role="status"
-				aria-live="polite"
-				transition:fade={{ delay: 100, easing: cubicInOut }}
-				class="animated-text text-2xl font-medium text-white"
-			>
+			<p role="status" aria-live="polite" class="animated-text text-2xl font-medium text-white">
 				Yay, you're on the waitlist!
 			</p>
 		{/if}

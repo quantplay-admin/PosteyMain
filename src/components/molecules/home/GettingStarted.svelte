@@ -2,22 +2,30 @@
 	import Icon from '../../atoms/Icon.svelte';
 </script>
 
-<div class="flex items-center gap-6">
-	<p class="text-xl text-gray-500">Sign up or log in with</p>
+<div class="flex items-center gap-10">
+	<p class="description text-xl text-gray-500">Sign up or log in with</p>
 
-	<button
-		class="focus:ring-opacity-50 flex h-12 w-12 items-center justify-center rounded-xl border border-gray-700 transition-all duration-200 hover:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-		aria-label="Sign in with Google"
+	<div
+		class="h-12 w-12 rounded-xl bg-gradient-to-tr from-[#b5b5b5] to-[#222222] p-[0.5px] hover:bg-gradient-to-tl"
 	>
-		<Icon name="google" family="flat-color-icons" class="text-xl" />
-	</button>
+		<button
+			class="flex h-full w-full items-center justify-center rounded-xl bg-[#000000]"
+			aria-label="Sign in with Google"
+		>
+			<Icon name="google" family="flat-color-icons" class="text-xl" />
+		</button>
+	</div>
 
-	<button
-		class="focus:ring-opacity-50 flex h-12 w-12 items-center justify-center rounded-xl border border-gray-700 transition-all duration-200 hover:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-		aria-label="Sign in with Email"
+	<div
+		class="h-12 w-12 rounded-xl bg-gradient-to-tr from-[#b5b5b5] to-[#222222] p-[0.5px] hover:bg-gradient-to-tl"
 	>
-		<Icon name="mail" family="lucide" class="text-xl text-gray-300" />
-	</button>
+		<button
+			class="flex h-full w-full items-center justify-center rounded-xl bg-[#000000]"
+			aria-label="Sign in with Email"
+		>
+			<Icon name="mail" family="lucide" class="text-xl text-gray-300" />
+		</button>
+	</div>
 </div>
 
 <style>

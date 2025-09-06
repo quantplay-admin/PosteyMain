@@ -6,9 +6,7 @@
 
 	let { children } = $props();
 
-	onMount(() => {
-		loadPostHog();
-	});
+	onMount(loadPostHog);
 </script>
 
 {@render children?.()}
