@@ -1,0 +1,89 @@
+{
+	"id": "postey-ai-app",
+	"name": "Postey.ai - AI-Powered Social Media Management",
+	"short_name": "Postey.ai",
+	"description": "Create, schedule, and manage your social media content across Twitter, LinkedIn, and more with AI-powered tools. Collaborate with your team in real-time.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#3B82F6",
+	"orientation": "any",
+	"categories": ["social", "productivity", "business"],
+	"lang": "en-US",
+	"dir": "ltr",
+	"icons": [
+		{
+			"src": "/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/apple-touch-icon.png",
+			"sizes": "180x180",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/favicon-32x32.png",
+			"sizes": "32x32",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/favicon-16x16.png",
+			"sizes": "16x16",
+			"type": "image/png",
+			"purpose": "any"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "/screenshot-wide.jpg",
+			"sizes": "1280x720",
+			"type": "image/jpeg",
+			"form_factor": "wide",
+			"label": "Main dashboard for social media management"
+		},
+		{
+			"src": "/screenshot-narrow.jpg",
+			"sizes": "540x720",
+			"type": "image/jpeg",
+			"form_factor": "narrow",
+			"label": "Mobile view of content creation"
+		}
+	],
+	"shortcuts": [
+		{
+			"name": "Create Post",
+			"short_name": "New Post",
+			"description": "Create a new social media post",
+			"url": "/?action=create",
+			"icons": [
+				{
+					"src": "/icons/create-icon-96.png",
+					"sizes": "96x96"
+				}
+			]
+		},
+		{
+			"name": "Calendar",
+			"short_name": "Schedule",
+			"description": "View scheduled posts calendar",
+			"url": "/calendar",
+			"icons": [
+				{
+					"src": "/icons/calendar-icon-96.png",
+					"sizes": "96x96"
+				}
+			]
+		}
+	]
+}

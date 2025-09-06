@@ -1,1 +1,14 @@
 @import 'tailwindcss';
+
+@font-face {
+	font-family: Satoshi;
+	src: url(Satoshi-Medium.woff2);
+}
+
+.heading {
+	font-family: 'Geist', sans-serif;
+}
+
+.description {
+	font-family: 'Satoshi', sans-serif;
+}

@@ -44,6 +44,11 @@
 		"vitest-browser-svelte": "^0.1.0"
 	},
 	"dependencies": {
-		"@inlang/paraglide-js": "^2.0.0"
+		"@inlang/paraglide-js": "^2.0.0",
+		"@portabletext/svelte": "^3.0.1",
+		"@sanity/client": "^7.11.0",
+		"gsap": "^3.13.0",
+		"posthog-js": "^1.261.6",
+		"shiki": "^3.12.2"
 	}
 }
